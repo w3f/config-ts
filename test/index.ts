@@ -55,4 +55,8 @@ describe('Config reader', () => {
         result.nodeVersion.should.eq(nodeVersion);
         result.dbURI.should.eq(dbURI);
     });
+
+    it('should throw with unexisting paths', () => {
+        ((): Test => subject.parse('not_a_real_path')).should.throw();
+    });
 });
